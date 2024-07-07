@@ -78,7 +78,7 @@ func getTypeFromMangledName(_ str: String) -> String {
     guard let typeRet: Any.Type = _getTypeByMangledNameInContext(ptr, useCnt, genericContext: nil, genericArguments: nil) else {
         return str;
     }
-    
+    print(typeRet)
     let tstr: String = String(describing: typeRet)
     //print("\(str) -> \(tstr)")
     return fixOptionalTypeName(tstr);

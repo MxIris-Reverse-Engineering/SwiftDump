@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class SDParser {
+public final class SDParser {
     private(set) var protocolObjs:[SDProtocolObj] = [];
     private(set) var cacheProtocolAddressMap:[UInt64: String] = [:];
     
@@ -20,7 +20,7 @@ final class SDParser {
     
     private var loader: SDFileLoader? = nil;
     
-    init(with loader: SDFileLoader) {
+    public init(with loader: SDFileLoader) {
         self.loader = loader
     }
     
@@ -31,7 +31,7 @@ final class SDParser {
         "0x02b98502": "Int64", "0x02418a02" : "UInt64",
         "0x02958802": "CGFloat"];
     
-    func parseSwiftProto() {
+    public func parseSwiftProto() {
         guard let loader = self.loader else {
             return;
         }
@@ -132,7 +132,7 @@ final class SDParser {
         }
     }
     
-    func parseSwiftProtos() {
+    public func parseSwiftProtos() {
         guard let loader = self.loader else {
             return;
         }
@@ -207,7 +207,7 @@ final class SDParser {
         
     }
     
-    func parseSwiftType() {
+    public func parseSwiftType() {
         guard let loader = self.loader else {
             return;
         }
@@ -381,7 +381,7 @@ final class SDParser {
         return tmp;
     }
     
-    func parseSwiftOCClass() {
+    public func parseSwiftOCClass() {
         guard let loader = self.loader else {
             return;
         }
@@ -432,7 +432,7 @@ final class SDParser {
     }
     
     
-    func dumpAll() {
+    public func dumpAll() {
         
         for obj in self.protocolObjs {
             let protoName: String = obj.name;

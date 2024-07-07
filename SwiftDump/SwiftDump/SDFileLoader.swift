@@ -8,16 +8,16 @@
 
 import Foundation
 
-final class SDFileLoader {
+public final class SDFileLoader {
     private let filePath: String;
     
     private(set) var machoFile: MachOFile? = nil;
     
-    init(file: String) {
+    public init(file: String) {
         self.filePath = file;
     }
     
-    func load(cpu: MachOCpuType) -> Bool {
+    public func load(cpu: MachOCpuType) -> Bool {
         
         Log("load file from \(self.filePath)")
         let fileURL = URL(fileURLWithPath: self.filePath);

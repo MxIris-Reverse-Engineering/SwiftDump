@@ -8,6 +8,7 @@
 
 import Foundation
 import ArgumentParser
+import SwiftDump
 
 // https://github.com/apple/swift-argument-parser
 // https://github.com/apple/swift/blob/master/docs/ABI/Mangling.rst#symbolic-references

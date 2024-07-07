@@ -17,7 +17,7 @@ enum LogLevel: Int {
 
 fileprivate var loglevel: LogLevel = .warn;
 
-func enableDebugLog() {
+public func enableDebugLog() {
     loglevel = .debug;
 }
 
@@ -35,7 +35,7 @@ func Log(_ msg: String, level:LogLevel = .debug, file: String = #file, method: S
     print(str)
 }
 
-func LogError(_ msg: String, file: String = #file, method: String = #function, line: Int = #line) {
+public func LogError(_ msg: String, file: String = #file, method: String = #function, line: Int = #line) {
     let prefix: String = "[error]"
     Log(prefix + msg, level: .error, file: file, method: method, line: line)
 }
