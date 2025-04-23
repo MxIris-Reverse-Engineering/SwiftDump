@@ -73,6 +73,10 @@ func getTypeFromMangledName(_ str: String) -> String {
     var useCnt:Int = str.count
     if (str.hasSuffix("_pG")) {
         useCnt = useCnt - 3
+    } else if (str.hasSuffix("_pcSg")) {
+        useCnt = useCnt - 5
+    } else if (str.hasSuffix("_pCSo")) {
+        useCnt = useCnt - 5
     }
     
     guard let typeRet: Any.Type = _getTypeByMangledNameInContext(ptr, useCnt, genericContext: nil, genericArguments: nil) else {

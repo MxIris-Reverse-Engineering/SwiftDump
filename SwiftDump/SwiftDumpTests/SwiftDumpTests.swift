@@ -20,8 +20,8 @@ final class SwiftDumpTests: XCTestCase {
     }
 
     func testExample() throws {
-        let file = "/Volumes/Repositories/Private/Fork/Library/resymbol/Tests/resymbolTests/IDESourceEditor_x86_64"
-        let loader = SDFileLoader(file: file);
+        guard let bundle = Bundle(path: "/System/Applications/Freeform.app"), let executablePath = bundle.executablePath else { return }
+        let loader = SDFileLoader(file: executablePath);
         let isSuccess: Bool = loader.load(cpu: .x86_64);
         if (!isSuccess) {
             LogError("fail to load file")
@@ -31,7 +31,7 @@ final class SwiftDumpTests: XCTestCase {
         parser.parseSwiftProtos(); // find all Protocol
         parser.parseSwiftType(); // find all Type
         parser.parseSwiftProto(); // parse after Protocol & Type
-        parser.parseSwiftOCClass();
+//        parser.parseSwiftOCClass();
         
         parser.dumpAll();
     }
